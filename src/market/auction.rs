@@ -45,25 +45,21 @@ impl Auction {
         self.bids.push(bid);
     }
 
+
     /// Get winning bid
     pub fn winner(&self) -> Option<&Bid> {
-        if self.bids.is_empty() {
-            return None;
-        }
-
-        let mut sorted = self.bids.clone();
-        sorted.sort_by(|a, b| b.amount().partial_cmp(&a.amount()).unwrap());
-
-        let winner = &sorted[0];
+        let best = self.bids.iter().max_by(|a, b| {
+            a.amount().partial_cmp(&b.amount()).unwrap_or(std::cmp::Ordering::Equal)
+        })?;
 
         // Check reserve price
         if let Some(reserve) = self.reserve_price {
-            if winner.amount() < reserve {
+            if best.amount() < reserve {
                 return None;
             }
         }
 
-        self.bids.iter().find(|b| b.bidder() == winner.bidder())
+        Some(best)
     }
 
     /// Get auction type
