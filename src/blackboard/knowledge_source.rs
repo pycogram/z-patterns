@@ -1,4 +1,4 @@
-use agentropic_core::AgentId;
+use z_core::AgentId;
 use serde::{Deserialize, Serialize};
 
 /// Type of knowledge source
