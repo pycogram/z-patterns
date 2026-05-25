@@ -11,4 +11,4 @@ pub use crate::team::{Coordination, Role, RoleType, Team};
 pub use crate::PatternError;
 
 // Re-export from core
-pub use agentropic_core::prelude::*;
+pub use z_core::prelude::*;

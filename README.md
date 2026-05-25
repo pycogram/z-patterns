@@ -1,12 +1,12 @@
-﻿# agentropic-patterns
+﻿# z-patterns
 
-[![Crates.io](https://img.shields.io/crates/v/agentropic-patterns.svg)](https://crates.io/crates/agentropic-patterns)
-[![Documentation](https://docs.rs/agentropic-patterns/badge.svg)](https://docs.rs/agentropic-patterns)
+[![Crates.io](https://img.shields.io/crates/v/z-patterns.svg)](https://crates.io/crates/z-patterns)
+[![Documentation](https://docs.rs/z-patterns/badge.svg)](https://docs.rs/z-patterns)
 [![License](https://img.shields.io/badge/license-MIT%2FApache--2.0-blue.svg)](LICENSE)
 
 **Multi-agent system coordination patterns and organizational structures.**
 
-`agentropic-patterns` provides high-level organizational patterns and coordination mechanisms for building sophisticated multi-agent systems. It implements proven architectural patterns for agent collaboration, from hierarchical command structures to emergent swarm behaviors.
+`z-patterns` provides high-level organizational patterns and coordination mechanisms for building sophisticated multi-agent systems. It implements proven architectural patterns for agent collaboration, from hierarchical command structures to emergent swarm behaviors.
 
 ---
 
@@ -47,7 +47,7 @@ All patterns have:
 
 Command and control structure with clear authority lines:
 ```rust
-use agentropic_patterns::prelude::*;
+use z_patterns::prelude::*;
 
 // Create hierarchy
 let mut hierarchy = Hierarchy::new("corporate");
@@ -79,7 +79,7 @@ hierarchy.delegate(delegation);
 
 Peer-based collaboration with shared goals:
 ```rust
-use agentropic_patterns::prelude::*;
+use z_patterns::prelude::*;
 
 // Create a team
 let mut team = Team::new("development-team");
@@ -103,7 +103,7 @@ println!("Members: {}", team.members().len());
 
 Decentralized, emergent behavior through local interactions:
 ```rust
-use agentropic_patterns::prelude::*;
+use z_patterns::prelude::*;
 
 // Create a swarm
 let mut swarm = Swarm::new("drone_swarm");
@@ -137,7 +137,7 @@ if consensus.is_reached() {
 
 Resource allocation through bidding and pricing:
 ```rust
-use agentropic_patterns::prelude::*;
+use z_patterns::prelude::*;
 
 // Create a market
 let mut market = Market::new("compute_market");
@@ -170,7 +170,7 @@ market.add_auction(auction);
 
 Dynamic grouping based on shared interests:
 ```rust
-use agentropic_patterns::prelude::*;
+use z_patterns::prelude::*;
 
 // Create coalition
 let mut coalition = Coalition::new("trading_coalition");
@@ -205,7 +205,7 @@ println!("Formation complete: {}", formation.is_complete());
 
 Shared knowledge space for problem-solving:
 ```rust
-use agentropic_patterns::prelude::*;
+use z_patterns::prelude::*;
 
 // Create blackboard
 let mut blackboard = Blackboard::new("shared_knowledge");
@@ -239,7 +239,7 @@ println!("Knowledge items: {}", blackboard.size());
 
 Nested hierarchy where each unit is both whole and part:
 ```rust
-use agentropic_patterns::prelude::*;
+use z_patterns::prelude::*;
 
 // Create holarchy
 let mut holarchy = Holarchy::new("organization");
@@ -265,7 +265,7 @@ println!("Holons: {}", holarchy.size());
 
 Autonomous units with coordinated policies:
 ```rust
-use agentropic_patterns::prelude::*;
+use z_patterns::prelude::*;
 
 // Create federation
 let mut federation = Federation::new("global_federation");
@@ -342,14 +342,14 @@ println!("Members: {}", federation.size());
 Add to your `Cargo.toml`:
 ```toml
 [dependencies]
-agentropic-patterns = "0.1.0"
-agentropic-core = "0.1.0"
-agentropic-messaging = "0.1.0"
+z-patterns = "0.1.0"
+z-core = "0.1.0"
+z-messaging = "0.1.0"
 ```
 
 ### Complete Swarm Example
 ```rust
-use agentropic_patterns::prelude::*;
+use z_patterns::prelude::*;
 
 fn main() {
     println!("=== Swarm Example ===\n");
@@ -388,7 +388,7 @@ fn main() {
 
 ### Market-Based Task Allocation
 ```rust
-use agentropic_patterns::prelude::*;
+use z_patterns::prelude::*;
 
 fn main() {
     println!("=== Market Example ===\n");
@@ -424,7 +424,7 @@ fn main() {
 
 ### Hierarchical Organization
 ```rust
-use agentropic_patterns::prelude::*;
+use z_patterns::prelude::*;
 
 fn main() {
     println!("=== Hierarchy Example ===\n");
@@ -462,7 +462,7 @@ fn main() {
 
 ### Coalition Formation
 ```rust
-use agentropic_patterns::prelude::*;
+use z_patterns::prelude::*;
 
 fn main() {
     println!("=== Coalition Example ===\n");
@@ -529,10 +529,10 @@ fn main() {
 │  Coalition │ Federation │ Blackboard    │
 ├─────────────────────────────────────────┤
 │         Messaging Layer                 │
-│  (agentropic-messaging)                 │
+│  (z-messaging)                 │
 ├─────────────────────────────────────────┤
 │         Core Layer                      │
-│  (agentropic-core)                      │
+│  (z-core)                      │
 └─────────────────────────────────────────┘
 ```
 
@@ -561,18 +561,18 @@ cargo run --example blackboard_example
 
 ## 🔗 Related Crates
 
-- **[agentropic-core](../agentropic-core)** - Agent primitives and lifecycle
-- **[agentropic-messaging](../agentropic-messaging)** - Communication protocols
-- **[agentropic-cognition](../agentropic-cognition)** - BDI reasoning and planning
-- **[agentropic-runtime](../agentropic-runtime)** - Agent execution engine
+- **[z-core](../z-core)** - Agent primitives and lifecycle
+- **[z-messaging](../z-messaging)** - Communication protocols
+- **[z-cognition](../z-cognition)** - BDI reasoning and planning
+- **[z-runtime](../z-runtime)** - Agent execution engine
 
 ---
 
 ## Documentation
 
-Full API documentation is available on [docs.rs](https://docs.rs/agentropic-patterns).
+Full API documentation is available on [docs.rs](https://docs.rs/z-patterns).
 
-For guides and tutorials, see the [Agentropic documentation](https://github.com/agentropic/agentropic-docs).
+For guides and tutorials, see the [ZeroicAI documentation](https://github.com/zeroicai/z-docs).
 
 ---
 
@@ -619,4 +619,4 @@ at your option.
 
 ---
 
-*Part of the [Agentropic](https://github.com/agentropic) ecosystem for agent-oriented programming in Rust.*
+*Part of the [ZeroicAI](https://github.com/zeroicai) ecosystem for agent-oriented programming in Rust.*

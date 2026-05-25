@@ -1,5 +1,5 @@
 use super::Holon;
-use agentropic_core::AgentId;
+use z_core::AgentId;
 use std::collections::HashMap;
 
 /// Holarchic organization structure

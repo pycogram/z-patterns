@@ -1,5 +1,5 @@
 use super::Strategy;
-use agentropic_core::AgentId;
+use z_core::AgentId;
 use std::collections::HashSet;
 
 /// Coalition of agents

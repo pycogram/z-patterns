@@ -18,26 +18,26 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
       with:
-        path: agentropic-patterns
+        path: z-patterns
     
     # Checkout dependencies as siblings
-    - name: Checkout agentropic-core
+    - name: Checkout z-core
       uses: actions/checkout@v3
       with:
-        repository: agentropic/agentropic-core
-        path: agentropic-core
+        repository: ZeroicAI/z-core
+        path: z-core
     
-    - name: Checkout agentropic-messaging
+    - name: Checkout z-messaging
       uses: actions/checkout@v3
       with:
-        repository: agentropic/agentropic-messaging
-        path: agentropic-messaging
+        repository: ZeroicAI/z-messaging
+        path: z-messaging
     
-    - name: Checkout agentropic-cognition
+    - name: Checkout z-cognition
       uses: actions/checkout@v3
       with:
-        repository: agentropic/agentropic-cognition
-        path: agentropic-cognition
+        repository: ZeroicAI/z-cognition
+        path: z-cognition
     
     - name: Install Rust toolchain
       uses: dtolnay/rust-toolchain@stable
@@ -47,26 +47,26 @@ jobs:
     - name: Cache dependencies
       uses: Swatinem/rust-cache@v2
       with:
-        workspaces: agentropic-patterns
+        workspaces: z-patterns
     
     - name: Check formatting
-      working-directory: agentropic-patterns
+      working-directory: z-patterns
       run: cargo fmt --all -- --check
     
     - name: Build
-      working-directory: agentropic-patterns
+      working-directory: z-patterns
       run: cargo build --verbose
     
     - name: Run Clippy
-      working-directory: agentropic-patterns
+      working-directory: z-patterns
       run: cargo clippy --all-targets --all-features -- -D warnings
     
     - name: Run tests
-      working-directory: agentropic-patterns
+      working-directory: z-patterns
       run: cargo test --verbose
     
     - name: Run examples
-      working-directory: agentropic-patterns
+      working-directory: z-patterns
       run: |
         cargo run --example hierarchy_example
         cargo run --example swarm_example

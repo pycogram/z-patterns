@@ -1,5 +1,5 @@
 use super::Policy;
-use agentropic_core::AgentId;
+use z_core::AgentId;
 use std::collections::{HashMap, HashSet};
 
 /// Federation of autonomous agents

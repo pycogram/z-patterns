@@ -1,4 +1,4 @@
-use agentropic_patterns::prelude::*;
+use z_patterns::prelude::*;
 
 fn main() {
     println!("=== Swarm Example ===\n");

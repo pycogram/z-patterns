@@ -1,5 +1,5 @@
 use super::{Coordination, Role};
-use agentropic_core::AgentId;
+use z_core::AgentId;
 use std::collections::HashMap;
 
 /// Team structure

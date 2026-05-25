@@ -1,5 +1,5 @@
 use super::{Delegation, Level};
-use agentropic_core::AgentId;
+use z_core::AgentId;
 use std::collections::HashMap;
 
 /// Hierarchical organization structure
