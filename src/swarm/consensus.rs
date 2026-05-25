@@ -1,4 +1,4 @@
-use agentropic_core::AgentId;
+use z_core::AgentId;
 use std::collections::HashMap;
 
 /// Consensus mechanism for swarm decisions

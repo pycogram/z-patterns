@@ -1,5 +1,5 @@
 use super::Behavior;
-use agentropic_core::AgentId;
+use z_core::AgentId;
 
 /// Swarm of agents
 #[derive(Debug, Clone)]
