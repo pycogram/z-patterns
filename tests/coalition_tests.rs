@@ -1,4 +1,4 @@
-use agentropic_patterns::prelude::*;
+use z_patterns::prelude::*;
 
 #[test]
 fn create_coalition() {
