@@ -1,8 +1,8 @@
-[patch."https://github.com/pycogram/agentropic-core"]
-agentropic-core = { version = "0.1.0", path = "../agentropic-core" }
+[patch."https://github.com/ZeroicAI/z-core"]
+z-core = { version = "0.1.0", path = "../z-core" }
 
-[patch."https://github.com/pycogram/agentropic-messaging"]
-agentropic-messaging = { version = "0.1.0", path = "../agentropic-messaging" }
+[patch."https://github.com/ZeroicAI/z-messaging"]
+z-messaging = { version = "0.1.0", path = "../z-messaging" }
 
-[patch."https://github.com/pycogram/agentropic-cognition"]
-agentropic-cognition = { version = "0.1.0", path = "../agentropic-cognition" }
+[patch."https://github.com/ZeroicAI/z-cognition"]
+z-cognition = { version = "0.1.0", path = "../z-cognition" }
