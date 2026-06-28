@@ -2,19 +2,19 @@
 name = "z-patterns"
 version = "0.1.0"
 edition = "2021"
-authors = ["ZeroicAI <devzeroicai@gmail.com>"]
+authors = ["zeroicai <devzeroicai@gmail.com>"]
 license = "MIT OR Apache-2.0"
 description = "Organizational patterns and architectures for multi-agent systems"
-repository = "https://github.com/ZeroicAI/z-patterns"
+repository = "https://github.com/zeroicai/z-patterns"
 documentation = "https://docs.rs/z-patterns"
 keywords = ["agents", "patterns", "multi-agent", "organization", "coordination"]
 categories = ["simulation", "algorithms"]
 readme = "README.md"
 
 [dependencies]
-z-core = { git = "https://github.com/ZeroicAI/z-core", branch = "main" }
-z-messaging = { git = "https://github.com/ZeroicAI/z-messaging", branch = "main" }
-z-cognition = { git = "https://github.com/ZeroicAI/z-cognition", branch = "main" }
+z-core = { git = "https://github.com/zeroicai/z-core", branch = "main" }
+z-messaging = { git = "https://github.com/zeroicai/z-messaging", branch = "main" }
+z-cognition = { git = "https://github.com/zeroicai/z-cognition", branch = "main" }
 
 async-trait = "0.1"
 tokio = { version = "1.0", features = ["full"] }
