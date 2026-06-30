@@ -22,6 +22,9 @@ pub enum PatternError {
     #[error("Policy violation: {0}")]
     PolicyViolation(String),
 
+    #[error("Spawn failed: {0}")]
+    SpawnFailed(String),
+
     #[error("Pattern error: {0}")]
     Other(String),
 }
