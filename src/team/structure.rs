@@ -1,5 +1,7 @@
 use super::{Coordination, Role};
-use z_core::AgentId;
+use z_core::{Agent, AgentId};
+use z_runtime::{Runtime, supervisor::RestartPolicy};
+use crate::PatternError;
 use std::collections::HashMap;
 
 /// Team structure
@@ -49,5 +51,30 @@ impl Team {
     /// Get all members
     pub fn members(&self) -> Vec<&AgentId> {
         self.roles.keys().collect()
+    }
+
+    /// Spawn agents into `runtime`, assign each a role, and return their IDs.
+    /// Each tuple is `(agent, name, role)`. The first agent with `RoleType::Leader`
+    /// is automatically set as team leader.
+    pub async fn spawn_agents(
+        &mut self,
+        runtime: &Runtime,
+        agents: Vec<(Box<dyn Agent>, String, Role)>,
+        policy: RestartPolicy,
+    ) -> Result<Vec<AgentId>, PatternError> {
+        use super::RoleType;
+        let mut ids = Vec::with_capacity(agents.len());
+        for (agent, name, role) in agents {
+            let id = runtime
+                .spawn_with_policy(agent, name, policy.clone())
+                .await
+                .map_err(|e| PatternError::SpawnFailed(e.to_string()))?;
+            if role.role_type() == RoleType::Leader && self.coordination().leader().is_none() {
+                self.set_leader(id);
+            }
+            self.assign_role(id, role);
+            ids.push(id);
+        }
+        Ok(ids)
     }
 }
