@@ -1,4 +1,7 @@
 use super::KnowledgeSource;
+use z_core::{Agent, AgentId};
+use z_runtime::{Runtime, supervisor::RestartPolicy};
+use crate::PatternError;
 use std::collections::HashMap;
 
 /// Blackboard for shared knowledge coordination
@@ -62,5 +65,24 @@ impl Blackboard {
     /// Get knowledge count
     pub fn size(&self) -> usize {
         self.knowledge.len()
+    }
+
+    /// Spawn knowledge-source agents into `runtime` and return their IDs.
+    /// Agents read/write to a shared blackboard via `Arc<Mutex<Blackboard>>` in their own code.
+    pub async fn spawn_agents(
+        &mut self,
+        runtime: &Runtime,
+        agents: Vec<(Box<dyn Agent>, String)>,
+        policy: RestartPolicy,
+    ) -> Result<Vec<AgentId>, PatternError> {
+        let mut ids = Vec::with_capacity(agents.len());
+        for (agent, name) in agents {
+            let id = runtime
+                .spawn_with_policy(agent, name, policy.clone())
+                .await
+                .map_err(|e| PatternError::SpawnFailed(e.to_string()))?;
+            ids.push(id);
+        }
+        Ok(ids)
     }
 }
