@@ -1,5 +1,7 @@
 use super::Policy;
-use z_core::AgentId;
+use z_core::{Agent, AgentId};
+use z_runtime::{Runtime, supervisor::RestartPolicy};
+use crate::PatternError;
 use std::collections::{HashMap, HashSet};
 
 /// Federation of autonomous agents
@@ -77,5 +79,24 @@ impl Federation {
     /// Get all policies
     pub fn policies(&self) -> impl Iterator<Item = &Policy> {
         self.policies.values()
+    }
+
+    /// Spawn agents into `runtime`, enroll them as federation members, and return their IDs.
+    pub async fn spawn_agents(
+        &mut self,
+        runtime: &Runtime,
+        agents: Vec<(Box<dyn Agent>, String)>,
+        policy: RestartPolicy,
+    ) -> Result<Vec<AgentId>, PatternError> {
+        let mut ids = Vec::with_capacity(agents.len());
+        for (agent, name) in agents {
+            let id = runtime
+                .spawn_with_policy(agent, name, policy.clone())
+                .await
+                .map_err(|e| PatternError::SpawnFailed(e.to_string()))?;
+            self.add_member(id);
+            ids.push(id);
+        }
+        Ok(ids)
     }
 }

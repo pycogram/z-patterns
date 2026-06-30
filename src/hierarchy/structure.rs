@@ -1,5 +1,7 @@
 use super::{Delegation, Level};
-use z_core::AgentId;
+use z_core::{Agent, AgentId};
+use z_runtime::{Runtime, supervisor::RestartPolicy};
+use crate::PatternError;
 use std::collections::HashMap;
 
 /// Hierarchical organization structure
@@ -55,5 +57,25 @@ impl Hierarchy {
     /// Get all levels
     pub fn levels(&self) -> &[Level] {
         &self.levels
+    }
+
+    /// Spawn agents into `runtime`, assign each to its level, and return their IDs.
+    /// Each tuple is `(agent, name, level)`.
+    pub async fn spawn_agents(
+        &mut self,
+        runtime: &Runtime,
+        agents: Vec<(Box<dyn Agent>, String, Level)>,
+        policy: RestartPolicy,
+    ) -> Result<Vec<AgentId>, PatternError> {
+        let mut ids = Vec::with_capacity(agents.len());
+        for (agent, name, level) in agents {
+            let id = runtime
+                .spawn_with_policy(agent, name, policy.clone())
+                .await
+                .map_err(|e| PatternError::SpawnFailed(e.to_string()))?;
+            self.assign_agent(id, level);
+            ids.push(id);
+        }
+        Ok(ids)
     }
 }
