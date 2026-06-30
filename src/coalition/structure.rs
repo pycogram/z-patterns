@@ -1,5 +1,7 @@
 use super::Strategy;
-use z_core::AgentId;
+use z_core::{Agent, AgentId};
+use z_runtime::{Runtime, supervisor::RestartPolicy};
+use crate::PatternError;
 use std::collections::HashSet;
 
 /// Coalition of agents
@@ -70,5 +72,24 @@ impl Coalition {
     /// Get value
     pub fn value(&self) -> f64 {
         self.value
+    }
+
+    /// Spawn agents into `runtime`, enroll them as coalition members, and return their IDs.
+    pub async fn spawn_agents(
+        &mut self,
+        runtime: &Runtime,
+        agents: Vec<(Box<dyn Agent>, String)>,
+        policy: RestartPolicy,
+    ) -> Result<Vec<AgentId>, PatternError> {
+        let mut ids = Vec::with_capacity(agents.len());
+        for (agent, name) in agents {
+            let id = runtime
+                .spawn_with_policy(agent, name, policy.clone())
+                .await
+                .map_err(|e| PatternError::SpawnFailed(e.to_string()))?;
+            self.add_member(id);
+            ids.push(id);
+        }
+        Ok(ids)
     }
 }
