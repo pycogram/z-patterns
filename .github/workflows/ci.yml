@@ -18,26 +18,26 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
       with:
-        path: z-patterns
+        path: patterns
     
     # Checkout dependencies as siblings
-    - name: Checkout z-core
+    - name: Checkout agent-core
       uses: actions/checkout@v3
       with:
-        repository: ZeroicAI/z-core
-        path: z-core
+        repository: RustyAI/agent-core
+        path: agent-core
     
-    - name: Checkout z-messaging
+    - name: Checkout messaging
       uses: actions/checkout@v3
       with:
-        repository: ZeroicAI/z-messaging
-        path: z-messaging
+        repository: RustyAI/messaging
+        path: messaging
     
-    - name: Checkout z-cognition
+    - name: Checkout cognition
       uses: actions/checkout@v3
       with:
-        repository: ZeroicAI/z-cognition
-        path: z-cognition
+        repository: RustyAI/cognition
+        path: cognition
     
     - name: Install Rust toolchain
       uses: dtolnay/rust-toolchain@stable
@@ -47,26 +47,26 @@ jobs:
     - name: Cache dependencies
       uses: Swatinem/rust-cache@v2
       with:
-        workspaces: z-patterns
+        workspaces: patterns
     
     - name: Check formatting
-      working-directory: z-patterns
+      working-directory: patterns
       run: cargo fmt --all -- --check
     
     - name: Build
-      working-directory: z-patterns
+      working-directory: patterns
       run: cargo build --verbose
     
     - name: Run Clippy
-      working-directory: z-patterns
+      working-directory: patterns
       run: cargo clippy --all-targets --all-features -- -D warnings
     
     - name: Run tests
-      working-directory: z-patterns
+      working-directory: patterns
       run: cargo test --verbose
     
     - name: Run examples
-      working-directory: z-patterns
+      working-directory: patterns
       run: |
         cargo run --example hierarchy_example
         cargo run --example swarm_example
