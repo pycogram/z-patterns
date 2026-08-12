@@ -1,8 +1,0 @@
-[patch."https://github.com/ZeroicAI/z-core"]
-z-core = { version = "0.1.0", path = "../z-core" }
-
-[patch."https://github.com/ZeroicAI/z-messaging"]
-z-messaging = { version = "0.1.0", path = "../z-messaging" }
-
-[patch."https://github.com/ZeroicAI/z-cognition"]
-z-cognition = { version = "0.1.0", path = "../z-cognition" }

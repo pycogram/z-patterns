@@ -1,4 +1,4 @@
-use z_patterns::prelude::*;
+use patterns::prelude::*;
 
 fn main() {
     println!("=== Blackboard Example ===\n");

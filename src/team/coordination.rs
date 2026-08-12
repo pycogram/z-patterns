@@ -1,4 +1,4 @@
-use z_core::AgentId;
+use agent_core::AgentId;
 
 /// Team coordination mechanism
 #[derive(Debug, Clone)]

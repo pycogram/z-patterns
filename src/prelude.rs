@@ -10,5 +10,5 @@ pub use crate::swarm::{Behavior, BehaviorType, Consensus, Flocking, Foraging, Sw
 pub use crate::team::{Coordination, Role, RoleType, Team};
 pub use crate::PatternError;
 
-// Re-export from core
-pub use z_core::prelude::*;
+// Re-export from agent-core
+pub use agent_core::prelude::*;
