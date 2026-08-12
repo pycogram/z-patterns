@@ -1,6 +1,6 @@
 use super::Behavior;
-use z_core::{Agent, AgentId};
-use z_runtime::{Runtime, supervisor::RestartPolicy};
+use agent_core::{Agent, AgentId};
+use runtime::{Runtime, supervisor::RestartPolicy};
 use crate::PatternError;
 
 /// Swarm of agents
