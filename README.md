@@ -1,12 +1,12 @@
-﻿# z-patterns
+﻿# patterns
 
-[![Crates.io](https://img.shields.io/crates/v/z-patterns.svg)](https://crates.io/crates/z-patterns)
-[![Documentation](https://docs.rs/z-patterns/badge.svg)](https://docs.rs/z-patterns)
+[![Crates.io](https://img.shields.io/crates/v/patterns.svg)](https://crates.io/crates/patterns)
+[![Documentation](https://docs.rs/patterns/badge.svg)](https://docs.rs/patterns)
 [![License](https://img.shields.io/badge/license-MIT%2FApache--2.0-blue.svg)](LICENSE)
 
 **Multi-agent system coordination patterns and organizational structures.**
 
-`z-patterns` provides high-level organizational patterns and coordination mechanisms for building sophisticated multi-agent systems. It implements proven architectural patterns for agent collaboration, from hierarchical command structures to emergent swarm behaviors.
+`patterns` provides high-level organizational patterns and coordination mechanisms for building sophisticated multi-agent systems. It implements proven architectural patterns for agent collaboration, from hierarchical command structures to emergent swarm behaviors.
 
 ---
 
@@ -47,7 +47,7 @@ All patterns have:
 
 Command and control structure with clear authority lines:
 ```rust
-use z_patterns::prelude::*;
+use patterns::prelude::*;
 
 // Create hierarchy
 let mut hierarchy = Hierarchy::new("corporate");
@@ -79,7 +79,7 @@ hierarchy.delegate(delegation);
 
 Peer-based collaboration with shared goals:
 ```rust
-use z_patterns::prelude::*;
+use patterns::prelude::*;
 
 // Create a team
 let mut team = Team::new("development-team");
@@ -103,7 +103,7 @@ println!("Members: {}", team.members().len());
 
 Decentralized, emergent behavior through local interactions:
 ```rust
-use z_patterns::prelude::*;
+use patterns::prelude::*;
 
 // Create a swarm
 let mut swarm = Swarm::new("drone_swarm");
@@ -137,7 +137,7 @@ if consensus.is_reached() {
 
 Resource allocation through bidding and pricing:
 ```rust
-use z_patterns::prelude::*;
+use patterns::prelude::*;
 
 // Create a market
 let mut market = Market::new("compute_market");
@@ -170,7 +170,7 @@ market.add_auction(auction);
 
 Dynamic grouping based on shared interests:
 ```rust
-use z_patterns::prelude::*;
+use patterns::prelude::*;
 
 // Create coalition
 let mut coalition = Coalition::new("trading_coalition");
@@ -205,7 +205,7 @@ println!("Formation complete: {}", formation.is_complete());
 
 Shared knowledge space for problem-solving:
 ```rust
-use z_patterns::prelude::*;
+use patterns::prelude::*;
 
 // Create blackboard
 let mut blackboard = Blackboard::new("shared_knowledge");
@@ -239,7 +239,7 @@ println!("Knowledge items: {}", blackboard.size());
 
 Nested hierarchy where each unit is both whole and part:
 ```rust
-use z_patterns::prelude::*;
+use patterns::prelude::*;
 
 // Create holarchy
 let mut holarchy = Holarchy::new("organization");
@@ -265,7 +265,7 @@ println!("Holons: {}", holarchy.size());
 
 Autonomous units with coordinated policies:
 ```rust
-use z_patterns::prelude::*;
+use patterns::prelude::*;
 
 // Create federation
 let mut federation = Federation::new("global_federation");
@@ -342,14 +342,14 @@ println!("Members: {}", federation.size());
 Add to your `Cargo.toml`:
 ```toml
 [dependencies]
-z-patterns = "0.1.0"
-z-core = "0.1.0"
-z-messaging = "0.1.0"
+patterns = "0.1.0"
+agent-core = "0.1.0"
+messaging = "0.1.0"
 ```
 
 ### Complete Swarm Example
 ```rust
-use z_patterns::prelude::*;
+use patterns::prelude::*;
 
 fn main() {
     println!("=== Swarm Example ===\n");
@@ -388,7 +388,7 @@ fn main() {
 
 ### Market-Based Task Allocation
 ```rust
-use z_patterns::prelude::*;
+use patterns::prelude::*;
 
 fn main() {
     println!("=== Market Example ===\n");
@@ -424,7 +424,7 @@ fn main() {
 
 ### Hierarchical Organization
 ```rust
-use z_patterns::prelude::*;
+use patterns::prelude::*;
 
 fn main() {
     println!("=== Hierarchy Example ===\n");
@@ -462,7 +462,7 @@ fn main() {
 
 ### Coalition Formation
 ```rust
-use z_patterns::prelude::*;
+use patterns::prelude::*;
 
 fn main() {
     println!("=== Coalition Example ===\n");
@@ -529,10 +529,10 @@ fn main() {
 │  Coalition │ Federation │ Blackboard    │
 ├─────────────────────────────────────────┤
 │         Messaging Layer                 │
-│  (z-messaging)                 │
+│  (messaging)                 │
 ├─────────────────────────────────────────┤
 │         Core Layer                      │
-│  (z-core)                      │
+│  (agent-core)                │
 └─────────────────────────────────────────┘
 ```
 
@@ -561,18 +561,18 @@ cargo run --example blackboard_example
 
 ## 🔗 Related Crates
 
-- **[z-core](../z-core)** - Agent primitives and lifecycle
-- **[z-messaging](../z-messaging)** - Communication protocols
-- **[z-cognition](../z-cognition)** - BDI reasoning and planning
-- **[z-runtime](../z-runtime)** - Agent execution engine
+- **[agent-core](../agent-core)** - Agent primitives and lifecycle
+- **[messaging](../messaging)** - Communication protocols
+- **[cognition](../cognition)** - BDI reasoning and planning
+- **[runtime](../runtime)** - Agent execution engine
 
 ---
 
 ## Documentation
 
-Full API documentation is available on [docs.rs](https://docs.rs/z-patterns).
+Full API documentation is available on [docs.rs](https://docs.rs/patterns).
 
-For guides and tutorials, see the [ZeroicAI documentation](https://github.com/zeroicai/z-docs).
+For guides and tutorials, see the [RustyAI documentation](https://github.com/rustyai/docs).
 
 ---
 
@@ -619,4 +619,4 @@ at your option.
 
 ---
 
-*Part of the [ZeroicAI](https://github.com/zeroicai) ecosystem for agent-oriented programming in Rust.*
+*Part of the [RustyAI](https://github.com/rustyai) ecosystem for agent-oriented programming in Rust.*
