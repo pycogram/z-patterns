@@ -1,4 +1,4 @@
-use z_core::AgentId;
+use agent_core::AgentId;
 use serde::{Deserialize, Serialize};
 
 /// Task delegation
