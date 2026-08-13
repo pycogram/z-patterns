@@ -572,7 +572,7 @@ cargo run --example blackboard_example
 
 Full API documentation is available on [docs.rs](https://docs.rs/patterns).
 
-For guides and tutorials, see the [RustyAI documentation](https://github.com/rustyai/docs).
+For guides and tutorials, see the [RustyAI documentation](https://github.com/RustyAIFW/docs).
 
 ---
 
@@ -619,4 +619,4 @@ at your option.
 
 ---
 
-*Part of the [RustyAI](https://github.com/rustyai) ecosystem for agent-oriented programming in Rust.*
+*Part of the [RustyAI](https://github.com/RustyAIFW) ecosystem for agent-oriented programming in Rust.*
